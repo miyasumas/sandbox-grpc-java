@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+//option java_multiple_files = true;
+option java_outer_classname = "QueueServiceProtobuf";
+option java_package = "com.github.miyasumas.grpc.sandbox.service";
+
+package sandbox;
+
+service QueueService {
+	rpc enqueue (QueueRequest) returns (QueueResponse) {};
+	rpc dequeue (QueueRequest) returns (QueueResponse) {};
+}
+
+message QueueRequest {
+	int32 priority = 1;
+	int64 userId = 2;
+}
+
+message QueueResponse {
+	int32 priority = 1;
+	int64 userId = 2;
+	int32 status = 3;
+}

@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+option java_outer_classname = "HealthCheckServiceProtobuf";
+option java_package = "com.github.miyasumas.grpc.sandbox.service";
+
+package sandbox;
+
+service HealthCheckService {
+	rpc HealthCheck (HealthCheckRequest) returns (HealthCheckResponse) {};
+}
+
+message HealthCheckRequest {
+}
+
+message HealthCheckResponse {
+	int32 status = 1;
+	string message = 2;
+}
